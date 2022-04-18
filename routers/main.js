@@ -4,7 +4,8 @@ const checkPermissionmiddlerware=require("../middleware/checkPermissionmiddlerwa
 
 
     router.get("/books",(req,res,next)=>{
-        res.send("books");
+      var routeName = req.route.path || req.route.regexp && req.route.regexp.source
+        res.send({ route: routeName});
       //  next()
     })
 
